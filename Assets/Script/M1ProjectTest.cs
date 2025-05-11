@@ -10,9 +10,11 @@ public class M1ProjectTest : MonoBehaviour
 {
     public Hero A;
     public bool randomizeA;
+    private Stats sumA;
 
     public Hero B;
     public bool randomizeB;
+    private Stats sumB;
 
     private bool startA;
     private int turno = 0;
@@ -28,17 +30,21 @@ public class M1ProjectTest : MonoBehaviour
         Debug.Log($"Vita <b>{A.GetName()}</b>: {A.GetHp()}");
         Debug.Log($"Vita <b>{B.GetName()}</b>: {B.GetHp()}");
 
+        //Sommo le statistiche tra Hero e Weapon
+        sumA = Stats.Sum(A.GetHeroStats(), A.GetWeapon().GetWeaponStats());
+        sumB = Stats.Sum(B.GetHeroStats(), B.GetWeapon().GetWeaponStats());
+
         //Valuto chi comincia il turno, la velocità non cambia perciò lo calcolo solo una volta all'inizio
-        startA = (A.GetHeroStats().spd + A.GetWeapon().GetWeaponStats().spd) >= (B.GetHeroStats().spd + B.GetWeapon().GetWeaponStats().spd);
+        startA = sumA.spd >= sumB.spd;
     }
 
     //Hero attacker attaccante, Hero defender difensore
-    private void Round(Hero attacker, Hero defender)
+    private void Round(Hero attacker, Stats attackerAllStats, Hero defender, Stats defenderAllStats)
     {
         Debug.Log($"Attacca <b>{attacker.GetName()}</b>, difende <b>{defender.GetName()}</b>");
 
         //Controllo se attacker colpisce defender
-        if (GF.HasHit(attacker.GetHeroStats(), defender.GetHeroStats()))
+        if (GF.HasHit(attackerAllStats, defenderAllStats))
         {
             //Controllo se attacker attacca un nemico con debolezza elementare
             if (GF.HasElementAdvantage(attacker.GetWeapon().GetElem(), defender))
@@ -77,18 +83,18 @@ public class M1ProjectTest : MonoBehaviour
             //Imposto l'ordine di esecuzione
             if (startA)
             {
-                Round(A, B);
+                Round(A, sumA, B, sumB);
                 if (B.IsAlive())
                 {
-                    Round(B, A);
+                    Round(B, sumB, A, sumA);
                 }
             }
             else
             {
-                Round(B, A);
+                Round(B, sumB, A, sumA);
                 if (A.IsAlive())
                 {
-                    Round(A, B);
+                    Round(A, sumA, B, sumB);
                 }
             }
         }
@@ -110,7 +116,7 @@ public class M1ProjectTest : MonoBehaviour
 
         nome = (randomizeA) ? "HeroA" : "HeroB";
         Stats baseStats = new Stats(-1, -1, -1, -1, -1, -1,-1);
-        return new Hero(nome, -1, baseStats, ELEMENT.NONE, ELEMENT.NONE, weapon);
+        return new Hero(nome, 0, baseStats, ELEMENT.NONE, ELEMENT.NONE, weapon);
     }
 
     void OnValidate()
