@@ -49,14 +49,7 @@ public class Hero
         //Eseguito tutte le altre volte
         else
         {
-            if (hp <= 0)
-            {
-                this.hp = 0;
-            }
-            else
-            {
-                this.hp = hp;
-            }
+            this.hp = Mathf.Max(0, hp);
         }
     }
 

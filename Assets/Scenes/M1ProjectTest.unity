@@ -168,15 +168,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   A:
     name: HeroA
-    hp: -100
+    hp: 79
     baseStats:
-      atk: 8
-      def: 4
-      res: 3
-      spd: 77
-      crt: 16
-      aim: 76
-      eva: 1
+      atk: 10
+      def: 2
+      res: 5
+      spd: 31
+      crt: 38
+      aim: 73
+      eva: 17
     resistance: 0
     weakness: 0
     weapon:
@@ -184,25 +184,25 @@ MonoBehaviour:
       dmgType: 0
       elem: 0
       bonusStats:
-        atk: 5
-        def: 4
-        res: 5
-        spd: 5
+        atk: 8
+        def: 5
+        res: 2
+        spd: 32
         crt: 49
-        aim: 56
-        eva: 0
+        aim: 51
+        eva: 6
   randomizeA: 0
   B:
     name: HeroB
-    hp: 90
+    hp: 96
     baseStats:
-      atk: 9
-      def: 2
-      res: 5
-      spd: 28
-      crt: 63
-      aim: 73
-      eva: 5
+      atk: 5
+      def: 3
+      res: 2
+      spd: 42
+      crt: 69
+      aim: 61
+      eva: 14
     resistance: 0
     weakness: 0
     weapon:
@@ -210,13 +210,13 @@ MonoBehaviour:
       dmgType: 0
       elem: 0
       bonusStats:
-        atk: 7
+        atk: 8
         def: 3
         res: 2
-        spd: 65
-        crt: 17
-        aim: 55
-        eva: 5
+        spd: 100
+        crt: 62
+        aim: 69
+        eva: 6
   randomizeB: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
