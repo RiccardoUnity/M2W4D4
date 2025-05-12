@@ -170,13 +170,13 @@ MonoBehaviour:
     name: HeroA
     hp: -100
     baseStats:
-      atk: 10
+      atk: 8
       def: 4
-      res: 5
-      spd: 43
-      crt: 42
-      aim: 50
-      eva: 20
+      res: 3
+      spd: 77
+      crt: 16
+      aim: 76
+      eva: 1
     resistance: 0
     weakness: 0
     weapon:
@@ -184,25 +184,25 @@ MonoBehaviour:
       dmgType: 0
       elem: 0
       bonusStats:
-        atk: 8
-        def: 3
-        res: 4
-        spd: 79
-        crt: 71
-        aim: 61
-        eva: 6
+        atk: 5
+        def: 4
+        res: 5
+        spd: 5
+        crt: 49
+        aim: 56
+        eva: 0
   randomizeA: 0
   B:
     name: HeroB
-    hp: 62
+    hp: 90
     baseStats:
-      atk: 10
+      atk: 9
       def: 2
       res: 5
-      spd: 57
-      crt: 88
-      aim: 60
-      eva: 14
+      spd: 28
+      crt: 63
+      aim: 73
+      eva: 5
     resistance: 0
     weakness: 0
     weapon:
@@ -210,13 +210,13 @@ MonoBehaviour:
       dmgType: 0
       elem: 0
       bonusStats:
-        atk: 6
-        def: 2
-        res: 5
-        spd: 100
-        crt: 98
-        aim: 54
-        eva: 10
+        atk: 7
+        def: 3
+        res: 2
+        spd: 65
+        crt: 17
+        aim: 55
+        eva: 5
   randomizeB: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -88,7 +88,7 @@ public static class GameFormulas
         int baseDamage = atkWepHero.atk - defence;
 
         //Applico al danno base il modificatore, assicurandomi che mi venga restituito DOPO il calcolo un int (hp di Hero è int)
-        baseDamage = (int)(baseDamage * EvaluateElementalModifier(attacker.GetWeapon().GetElem(), defender));
+        baseDamage = Mathf.RoundToInt(baseDamage * EvaluateElementalModifier(attacker.GetWeapon().GetElem(), defender));
 
         //Applico la logica del colpo critico
         if (IsCrit(atkWepHero.crt))
